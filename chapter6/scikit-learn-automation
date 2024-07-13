@@ -1,0 +1,16 @@
+from sklearn.ensemble import IsolationForest
+import numpy as np
+
+# Generate sample network traffic data (replace with actual data)
+data = np.random.randn(1000, 2)
+
+# Train Isolation Forest model for anomaly detection
+model = IsolationForest()
+model.fit(data)
+
+# Predict anomalies in the data
+anomaly_predictions = model.predict(data)
+
+# Output anomaly predictions
+print("Anomaly Predictions:")
+print(anomaly_predictions)

@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Initialize') {
+            steps {
+                // Checkout source code from repository if needed
+                // For example: git 'https://github.com/your/repository.git'
+            }
+        }
+        
+        stage('OWASP ZAP Scan') {
+            steps {
+                sh '''
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install python-owasp-zap-v2 requests
+                python owasp_zap_scan.py
+                '''
+            }
+        }
+    }
+}
